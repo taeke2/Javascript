@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ex01</title>
+<!--
+test.js 파일 내용 불러와서 실행
+script는 head/body 아무곳에서나 작성 가능 
+실행순서는 head먼저 실행 -> body 실행
+-->
+<script type="text/javascript" src="test.js"></script>
+</head>
+<body>
+	<button type="button" onclick="alert('클릭 발생')">클릭</button>
+	<script type="text/javascript">
+		var num = 1;
+		document.write("body 태그 내 실행 순서 : " + num + "<br>")
+	</script>
+	<hr>
+	<script type="text/javascript">
+		var num; //변수 값이 없음
+		var obj = null // 객체 변수 값이 없음
+		document.write("1. 100 : " + typeof 100 + "<br>")	// number
+		document.write("2. 10.5 : " + typeof 10.5 + "<br>")	// number
+		document.write("3. 홍길동 : " + typeof "홍길동" + "<br>")	// string
+		document.write("4. true : " + typeof true + "<br>")	// boolean
+		document.write("5. [1,2,3] : " + typeof [ 1, 2, 3 ] + "<br>")	// object
+		document.write("6. {name:홍길동} : " + typeof {name : '홍길동'} + "<br>")	// object
+		document.write("7. num : " + typeof num + "<br>")	// number
+		document.write("8. obj : " + typeof obj + "<br>")	// object
+
+		var test = prompt('입력 하세요')	// 값 입력받기
+		document.write("===> " + test)
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
