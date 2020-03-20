@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ex06</title>
+<script type="text/javascript">
+		function main(){
+			alert("환영합니다");
+		}
+</script>
+<style type="text/css">
+	.div{ background-color: #d94a38; width: 120px; height: 50px; }
+</style>
+<script type="text/javascript">
+	function mOver(obj){
+		obj.innerHTML = "Thank You";
+	}
+	function mOut(obj){
+		obj.innerHTML = "Mouse Over Me";
+	}
+</script>
+</head>
+<body><!-- onload="main()" -->
+	<div class="div" onmouseover="mOver(this)" onmouseout="mOut(this)">Mouse Over Me</div>
+	<h1 onmouseover="style.color='red'" onmouseout="style.color='black'">Mouse over this text</h1>
+
+
+	<hr>
+
+
+	<div id="digClock01"></div>
+	<button onclick="test()">클릭</button>
+	<!-- <button onclick="click01()">시작</button> 인터벌 사용시 onclick 함수를 click_ 으로 바꾼다.-->
+	<button onclick="digClock()">시작</button>
+	<button onclick="end()">종료</button>
+
+	<script type="text/javascript">
+		var e;
+		var cnt = 1;
+		function click01(){
+			e = setInterval(digClock, 1000);	// 다른 함수도 호출 가능
+		}
+		
+		function digClock() {
+			var today = new Date();
+			var day = today.getMonth() + 1 + "월 " + today.getDate() + "일";
+			var time = today.getHours() + "시" + today.getMinutes() + "분"
+					+ today.getSeconds() + "초";
+			document.getElementById("digClock01").innerHTML = day + time;
+			
+			e = setTimeout('digClock()', 1000);	// setTimeout(함수, 시간) :해당하는 함수를 호출하겠다는 함수 / 자기자신에 대한 값만 호출할 수 있다(?)
+		}
+
+		function test() {
+			console.log("클릭 클릭!!!!" + cnt++);
+		}
+
+		function end() {
+			//clearInterval(e);
+			clearTimeout(e);
+		}
+		
+		digClock();
+	</script>
+
+
+	<hr>
+
+
+	<p id="d1"></p>
+	<p id="d2"></p>
+	<p id="d3"></p>
+	<script type="text/javascript">
+		// 실시간 데이터 가져오기
+		var today = new Date();
+		document.getElementById("d1").innerHTML = today.getFullYear() + "년";
+		document.getElementById("d2").innerHTML = today.getMonth() + 1 + "월"
+				+ today.getDate() + "일";
+		document.getElementById("d3").innerHTML = today.getHours() + "시"
+				+ today.getMinutes() + "분" + today.getSeconds() + "초";
+	</script>
+
+
+	<hr>
+
+
+	<script type="text/javascript">
+		// key / value 형식 => HashMap 과 유사함
+		var data = {
+			'f0' : 100,
+			'f1' : 200,
+			'f2' : 300
+		};
+		data['f3'] = 400; // 배열 데이터 저장
+		data.f4 = 500; // 배열 데이터 저장
+		document.write(data.f0 + "<br>"); // 'f0' 키 데이터 조회
+		document.write(data.f1 + "<br>"); // 'f1' 키 데이터 조회
+		document.write(data['f2'] + "<br>");
+		document.write(data['f3'] + "<br>");
+		document.write(data['f4'] + "<br>");
+	</script>
+
+
+	<hr>
+
+
+	<script type="text/javascript">
+		// 프린트하는 함수를 호출하여 forEach문으로 배열 데이터 출력하기
+		var kdata = [ '서울', '부산', '청주', '대구' ];
+
+		kdata.forEach(function printArr(item, index) {
+			document.write("배열 데이터 [" + index + "] : " + item + "<br>");
+		});
+	</script>
+
+
+	<hr>
+
+
+	<script type="text/javascript">
+		var kdata = [ '서울', '부산' ];
+		var p1 = kdata.unshift('청주', '세종'); // p1 = 4
+		// 앞으로 추가된다. kdata = [ 청주, 세종, 서울, 부산 ] 순임
+		document.write("데이터 : " + p1 + "<br>");
+		document.write("배열 데이터 : " + kdata + "<p/>");
+		var p2 = kdata.shift(); // p2 = 청주
+		// 앞의 데이터가 담긴다. <-> pop() : 마지막 데이터를 가져온다.
+		document.write("데이터 : " + p2 + "<br>");
+		document.write("배열 데이터 : " + kdata + "<p/>");
+	</script>
+
+
+	<hr>
+
+
+	<script type="text/javascript">
+		var kdata = [ '서울', '부산', '구포', '대구', '대전' ];
+		var p1 = kdata.push('청주', '세종'); // p1 = 7
+		// 뒤로 데이터를 추가한다.
+		document.write("데이터 : " + p1 + "<br>");
+		document.write("배열 데이터 : " + kdata + "<p/>");
+		var p2 = kdata.pop(); // p2 = 세종
+		// 마지막 데이터를 가져온다.
+		document.write("데이터 : " + p2 + "<br>");
+		document.write("배열 데이터 : " + kdata + "<p/>");
+	</script>
+
+
+	<hr>
+
+
+	<script type="text/javascript">
+		var kdata = [ '서울', '부산', '구포', '대구', '인천', '대전', '세종' ];
+		var str1 = kdata.slice(0, 4);
+		var str2 = kdata.slice(2, -1);
+		var str3 = kdata.slice(-4, -2);
+		// slice(시작 인덱스, 끝 다음 인덱스)
+		// ex) data.slice(1,4) : 인덱스 data[1],data[2],data[3]이 출력됨
+		document.write("부분 배열1 : " + str1 + "<p/>");
+		document.write("부분 배열2 : " + str2 + "<p/>");
+		document.write("부분 배열3 : " + str3 + "<p/>");
+	</script>
+
+
+	<hr>
+
+
+	<script type="text/javascript">
+		var city01 = [ "서울", "부산", "대전" ];
+		var city02 = [ "대구", "광주", "인천" ];
+		var city03 = [ "전주", "부여", "세종" ];
+		var data1 = city01.concat("수원", "오산");
+		var data2 = city01.concat(city02);
+		var data3 = city01.concat(city03, city02);
+		// concat은 ,로 이어져 출력된다.
+		document.write("결과1 : " + data1 + "<P/>");
+		document.write("결과2 : " + data2 + "<P/>");
+		document.write("결과3 : " + data3 + "<P/>");
+	</script>
+
+
+	<hr>
+
+
+	<script type="text/javascript">
+		var city = [ "서울", "부산", "대전" ];
+		var joindata1 = city.join();
+		var joindata2 = city.join('-');
+		var joindata3 = city.join(' 그리고 ');
+		// join 괄호 안에 문자로 배열값이 이어져서 프린트된다.
+		document.write("조인 결과1 : " + joindata1 + "<p/>"); // <p/> = <p></p>
+		document.write("조인 결과2 : " + joindata2 + "<p/>");
+		document.write("조인 결과3 : " + joindata3 + "<p/>");
+	</script>
+
+
+	<hr>
+
+
+	<script type="text/javascript">
+		var arrdata = [];
+		function insertArr() {
+			var i;
+			for (i = 0; i <= 99; i++) {
+				arrdata[i] = i + 1; // 1~100 저장
+				document.write(arrdata[i] + " "); // 데이터 출력
+			}
+			document.write("<p>배열 크기 : " + arrdata.length + "</p>");
+		}
+
+		function delDataArr() {
+			var i;
+			for (i = 0; i < arrdata.length; i++)
+				arrdata[i] = 0; // 배열 데이터를 0으로 초기화
+			selectArr();
+		}
+
+		function allDelArr() {
+			arrdata.length = 0;
+			selectArr();
+		}
+
+		function selectArr() {
+			var i;
+			for (i = 0; i < arrdata.length; i++)
+				document.write(arrdata[i] + " "); // 데이터 조회
+			document.write("<p> 배열크기 : " + arrdata.length + "</p>");
+			document.write("<a href='Ex06.html'>돌아가기</a>");
+		}
+		insertArr(); // 배열 데이터 생성 함수 호출
+	</script>
+	<button type="button" onclick="delDataArr()">배열 데이터 초기화</button>
+	<button type="button" onclick="allDelArr()">배열 데이터 삭제</button>
+
+
+	<hr>
+
+
+	<script type="text/javascript">
+		var city = [ "Seoul", "Busan", "Incheon" ];
+		// 추가로 값을 넣을 수 있다.
+		city[3] = 12345;
+		city[4] = true;
+		function printArr() {
+			var i;
+			for (i = 0; i < city.length; i++) {
+				document.write("배열 데이터[" + i + "] = " + city[i] + "<br>");
+			}
+		}
+		printArr();
+	</script>
+</body>
+</html>

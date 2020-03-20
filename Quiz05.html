@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Quiz05</title>
+<style>
+	img { width: 100px; height: 100px;}
+	.fixedList { position: fixed; right: 30px; top: 10px; width: 100px; text-align: center; }
+	.font { background-color: red; size: 4; }
+	.imgList { display: flex; flex-flow: column; right: 30px; top: 100px; }
+</style>
+
+<script type="text/javascript">
+	var imgList = [];
+	var imgSize = 5;
+	
+	function display(index){
+		console.log(index);
+		changeMsg();
+		imgsrc = 'resources/images/최근상품0' + index + '.jpg';
+		img = document.createElement('img');
+		img.setAttribute('src', imgsrc );
+		
+
+	}
+	
+	function changeMsg(){
+		var ls = document.getElementById("text");
+		ls.innerHTML = "최근 구경한 상품";
+		ls.style.background = "green";
+	}
+	
+</script>
+</head>
+<body>
+	<div class="fixedList">
+		<h3 id="text" class="font">목록이 없습니다</h3>
+		
+	</div>
+	<div class="imgList"></div>
+	
+	<script type="text/javascript">
+		document.write("<table border='1' align='center'>");
+		document.write("<tr>");
+		for (var i = 1; i < 5; i++) {
+			document.write("<td><img onclick='display("+i+")' src='resources/images/최근상품0" + i + ".jpg'></td>");
+		}
+		document.write("</tr>");
+		document.write("<tr>");
+		for (var i = 5; i < 9; i++) {
+			document.write("<td><img onclick='display("+i+")' src='resources/images/최근상품0" + i + ".jpg'></td>");
+		}
+		document.write("</tr>");
+		document.write("</table>");
+	</script>
+</body>
+</html>

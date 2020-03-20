@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body onload="autoDisplay()">
+	<script type="text/javascript">
+		var cnt = 1;
+		var e;
+		function next() {
+			cnt++;
+			if (cnt == 9)
+				cnt = 1;
+			display();
+		}
+
+		function prev() {
+			cnt--;
+			if (cnt == 0)
+				cnt = 8;
+			display();
+		}
+
+		function autoDisplay() {
+			display();
+			e = setTimeout("autoDisplay()", 1000);
+			cnt++;
+			if (cnt == 9)
+				cnt = 1;
+		}
+
+		function stopDisplay() {
+			clearTimeout(e);
+		}
+
+		function display() {
+			document.getElementById("img").src = "resources/images/최근상품0" + cnt
+					+ ".jpg";
+		}
+	</script>
+	<div onmouseover="stopDisplay()" onmouseout="autoDisplay()">
+		<img src="resources/images/왼쪽화살표.jpg" onclick="prev()" width="100px"
+			height="100px"> <img id="img" src="resources/images/최근상품01.jpg"
+			width="400px" height="500px"> <img
+			src="resources/images/오른쪽화살표.jpg" onclick="next()" width="100px"
+			height="100px">
+	</div>
+
+
+</body>
+</html>
