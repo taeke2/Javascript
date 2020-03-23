@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+<script type="text/javascript">
+	function pwchk(){
+		pw = document.getElementById("pw");
+		pwchk = document.getElementById("pwchk");
+		if(pw.value === pwchk.value){
+			document.getElementById("cmd").innerHTML = "확인!!";
+		}else{
+			document.getElementById("cmd").innerHTML = "불일치!!";
+			pw.value = "";
+			pwchk.value = "";
+			pw.focus();
+		}
+	}
+	
+	function mb_input(){
+		id = document.getElementById("id");
+		console.log(id);
+		pw = document.getElementById("pw");
+		if(id.value === ""){
+			alter("아이디를 입력해 주세요.");
+			document.getElementById("id").focus();
+		}else if(pw = ""){
+			alter("비밀번호를 입력해 주세요.");
+			document.getElementById("pw").focus();
+		}else{
+			alter("등록되었습니다.");
+		}
+	}
+</script>
+</head>
+<body>
+	<h1>계정 등록 페이지 입니다.</h1>
+	<div>
+		<input type="text" name="id" value="아이디"><font color="red">필수항목!</font><br>
+		<input type="text" name="pw" id="pw"><font color="red">필수항목!</font><br>
+		<input type="text" name="pw_chk" id="pwchk" onchange="pwchk()"><font id="cmd"></font><br>
+		<input type="text" name="name"><br>
+	</div>
+	<hr>
+	<input type="button" value="등록" onclick="mb_input()">
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ex12</title>
+<script type="text/javascript">
+	function test(){
+		//fo.submit();
+		location.href = "Ex11.html?name=홍길동&aaa=산골짜기";
+		//location.href는 단순히 페이지만 이동한다. 데이터도 넘기려면 위처럼 직접 넣어줘야된다. submit 써라 걍;
+	}
+</script>
+</head>
+<body>
+	<form id="fo" action="Ex12.html">
+		이름<input type="text" name="name"><br>
+		주소<input type="text" name="addr"><br>
+		<input type="submit" value="서브밋"><br>
+		<input type="button" value="버튼" onclick="test()"><br>
+	</form>
+	<input type="button" value="버튼" onclick="location.href='Ex10.html'"><br>
+</body>
+</html>

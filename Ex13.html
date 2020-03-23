@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ex13_마우스 클릭</title>
+<script type="text/javascript">
+	function mDown(obj) {
+		obj.style.backgroundColor = "#1ec5e5";
+		obj.innerHTML = "Release Me";
+	}
+
+	function mUp(obj) {
+		obj.style.backgroundColor = "#094A38";
+		obj.innerHTML = "Thank you";
+	}
+	/////////////////////////////////////////////////////////////////////
+	function lightOn() {
+		document.getElementById("myimage").src = "resources/images/light_on.jpg";
+	}
+
+	function lightOff() {
+		document.getElementById("myimage").src = "resources/images/light_off.jpg";
+	}
+</script>
+</head>
+<body>
+	<div style="text-align: center;">
+		<img id="myimage" onmousedown="lightOn()" onmouseup="lightOff()"
+			src="resources/images/light_off.jpg" width="150" height="180">
+		<p>Click mouse and hold down!</p>
+	</div>
+
+	<!-- this 사용 가능  -->
+	<div onmousedown="mDown(this)" onmouseup="mUp(this)"
+		style="background-color: pink; width: 90px; height: 20px; padding: 40px;">
+		Click Me
+	</div>
+</body>
+</html>
